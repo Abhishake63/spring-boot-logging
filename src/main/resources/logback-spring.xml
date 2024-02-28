@@ -1,15 +1,19 @@
 <configuration>
+
+    <!-- Define properties -->
+    <property name="LOG_DIR" value="/home/abhishake" />
     <property name="INFO" value="info" />
     <property name="WARN" value="warn" />
     <property name="ERROR" value="error" />
-    <property name="LOG_DIR" value="/home/abhishake" />
     
+    <!-- Console Appender -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%5p) %magenta(${PID:- }) --- [%t] %green(%logger{36}) : %m%n%ex</pattern>
         </encoder>
     </appender>
 
+    <!-- INFO Appender -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
 				  <level>INFO</level>
@@ -18,7 +22,7 @@
 				</filter>
         <file>${LOG_DIR}/${INFO}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${INFO}.gz</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/${INFO}.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
@@ -27,6 +31,7 @@
         </encoder>
     </appender>
     
+    <!-- WARN Appender -->
     <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
           <level>WARN</level>
@@ -35,7 +40,7 @@
         </filter>
         <file>${LOG_DIR}/${WARN}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${WARN}.gz</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/${WARN}.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
@@ -44,7 +49,8 @@
         </encoder>
     </appender>
     
-    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- ERROR Appender -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender"> 
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
           <level>ERROR</level>
           <onMatch>ACCEPT</onMatch>
@@ -52,7 +58,7 @@
         </filter>
         <file>${LOG_DIR}/${ERROR}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${ERROR}.gz</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/${ERROR}.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
@@ -61,6 +67,7 @@
         </encoder>
     </appender>
     
+    <!-- Root Logger -->
     <root level="info">
         <appender-ref ref="INFO" />
         <appender-ref ref="WARN" />
