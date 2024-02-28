@@ -1,10 +1,7 @@
 <configuration>
 
-    <!-- Define properties -->
-    <property name="LOG_DIR" value="/home/abhishake/temp" />
-    <property name="INFO" value="info" />
-    <property name="WARN" value="warn" />
-    <property name="ERROR" value="error" />
+    <!-- Include properties -->
+    <property resource="application.properties" />
 
     <!-- Console Appender -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
