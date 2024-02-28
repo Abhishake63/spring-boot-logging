@@ -1,7 +1,7 @@
 <configuration>
 
     <!-- Define properties -->
-    <property name="LOG_DIR" value="/home/abhishake" />
+    <property name="LOG_DIR" value="/home/abhishake/temp" />
     <property name="INFO" value="info" />
     <property name="WARN" value="warn" />
     <property name="ERROR" value="error" />
