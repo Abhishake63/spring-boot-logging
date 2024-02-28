@@ -19,6 +19,7 @@
         <file>${LOG_DIR}/${INFO}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${INFO}.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
@@ -35,6 +36,7 @@
         <file>${LOG_DIR}/${WARN}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${WARN}.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
@@ -51,6 +53,7 @@
         <file>${LOG_DIR}/${ERROR}.log</file> 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${ERROR}.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
