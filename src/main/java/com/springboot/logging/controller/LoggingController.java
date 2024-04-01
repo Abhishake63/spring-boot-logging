@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LogginController {
+public class LoggingController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LogginController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     @GetMapping("/")
     public Boolean sendMailWithAttachment() {
